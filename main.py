@@ -1,7 +1,6 @@
 from flask import Flask,request
 # from flask_cors import CORS
 import numpy as np 
-import pandas as pd 
 import json
 from werkzeug import secure_filename
 
@@ -18,7 +17,7 @@ app = Flask(__name__)
 
 @app.route('/',methods=['GET' , 'POST'])
 def index():
-  img_width, img_height = 100, 100
+  img_width, img_height = 300, 300
   
   if request.method == 'POST':
       f = request.files['file']
@@ -37,4 +36,4 @@ def index():
 
 
 if __name__ == "__main__":
-  app.run()
+  app.run(threaded=False)
